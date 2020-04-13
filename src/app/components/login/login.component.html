@@ -1,7 +1,45 @@
 <div class="container full-height">
   <div class="row h-100 justify-content-center align-items-center">
-    <div class="login-container col-sm-12 col-md-6">
-      <mat-card>Login</mat-card>
+    <div class="login-container col-sm-12 col-md-5">
+      <mat-card>
+        <!-- Name -->
+        <h2><span class="primary-color">¡</span>Movimiento Trueque<span class="primary-color">!</span></h2>
+        <!-- <h4>Inicia sesion para </h4> -->
+        <!-- Logo -->
+        <div class="logo-container">
+          <img src="assets/images/logo.png">
+        </div>
+        <!-- Form -->
+        <!-- TODO: validators -->
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <!-- TODO: move form-input-heigh class to a global helper css -->
+          <p class="form-input-height">
+            <mat-form-field appearance="standard" class="full-width">
+              <mat-label>Email</mat-label>
+              <input 
+                type="email" 
+                matInput 
+                placeholder="Email" 
+                autocomplete="new-password"  
+                formControlName="email">
+            </mat-form-field>
+          </p>
+          <p class="form-input-height">
+            <mat-form-field appearance="standard" class="full-width">
+              <mat-label>Password</mat-label>
+              <input 
+                type="password" 
+                matInput 
+                placeholder="Password" 
+                formControlName="password">
+            </mat-form-field>
+          </p>
+          <!-- TODO: move button-row class to a global helper css -->
+          <p class="d-flex flex-row-reverse button-row">
+            <button mat-flat-button color="primary" [disabled]="!loginForm.valid">Login</button>
+          </p>
+        </form>
+      </mat-card>
     </div>
   </div>
 </div>
