@@ -1,27 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './router/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 // modules
 import { LoginModule } from './components/login/login-module.module';
+import { DashboardModule } from './components/dashboard/dashboard-module.module';
+import { FeedDescriptionModule } from './components/feed-description/feed-description-module.module'
+import { SharedFormsModule } from './components/shared/shared-forms-module.module'
 
+// components
+import { NavBarComponent } from './components/common/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    DashboardComponent
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    LoginModule
+    CommonModule,
+    SharedFormsModule,
+    LoginModule,
+    DashboardModule,
+    FeedDescriptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
