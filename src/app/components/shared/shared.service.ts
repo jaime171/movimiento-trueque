@@ -29,6 +29,27 @@ export class SharedService {
     'Tus ventas estan algo bajas, ¿Y si ofreces algun otro servicio a cambio?'
   ]
 
+  private _tickets = [
+    {
+      id: 1,
+      name: '5 ordenes de tacos',
+      description: '5 ordenes de tacos en la hacienda zona norte',
+      cliente: 'La hacienda',
+    },
+    {
+      id: 2,
+      name: '10 kilos de tortillas',
+      description: '10 kilos de tortillas de maiz',
+      cliente: 'tortilleria lucas'
+    },
+    {
+      id: 3,
+      name: 'branding completo',
+      description: 'desarrollo de imagen corporativa',
+      cliente: 'marketing cerouno'
+    }
+  ]
+
 
   private personalInfo = {
     name: 'Jaime Martinez',
@@ -47,7 +68,7 @@ export class SharedService {
       }
     ]
   };
-
+ 
   public feeds = [
     {
       id: 1,
@@ -85,7 +106,7 @@ export class SharedService {
       serviceImage: "service_3.jpg",
       endDate: "10/11/2020",
       type: "producto",
-      author: "Laura Rosas",
+      author: "Lucia Rosas",
       coverImg: "cover.jpg"
     },
     {
@@ -102,4 +123,47 @@ export class SharedService {
       coverImg: "cover.jpg"
     }
   ];
+
+  public getProfile(id): any {
+    return this.profiles[id];
+  }
+
+  private profiles = [
+    {
+      ...this.feeds[0],
+      telefono: '8446575657',
+      email: 'laura@gmail.com',
+      fechaNacimiento: 'Diciembre 7',
+      socioDesde: 'Abril 2020',
+      ultimaVenta: 'Mayo 2020',
+      tickets: [...this._tickets]
+    },
+    {
+      ...this.feeds[1],
+      telefono: '84465453657',
+      email: 'juan@gmail.com',
+      fechaNacimiento: 'Diciembre 8',
+      socioDesde: 'Abril 2020',
+      ultimaVenta: 'Mayo 2020',
+      tickets: [...this._tickets]
+    },
+    {
+      ...this.feeds[2],
+      telefono: '8445453657',
+      email: 'lucia@gmail.com',
+      fechaNacimiento: 'Diciembre 9',
+      socioDesde: 'Abril 2020',
+      ultimaVenta: 'Mayo 2020',
+      tickets: [...this._tickets]
+    },
+    {
+      ...this.feeds[3],
+      telefono: '844644657',
+      email: 'miguel@gmail.com',
+      fechaNacimiento: 'Diciembre 10',
+      socioDesde: 'Abril 2020',
+      ultimaVenta: 'Mayo 2020',
+      tickets: [...this._tickets]
+    }
+  ]
 }

@@ -16,6 +16,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.feeds = this._sharedService.feeds;
-    // this._sharedService.setIsLoadded(true);
+    this._sharedService.setIsLoadded(true);
   }
 }
