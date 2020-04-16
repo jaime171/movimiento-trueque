@@ -22,7 +22,6 @@ export class FeedElementComponent implements OnInit {
     public _sharedService: SharedService,
     public _dialog: MatDialog,
     private _snackBar: MatSnackBar
-
   ) { }
 
   ngOnInit() {
@@ -35,7 +34,13 @@ export class FeedElementComponent implements OnInit {
   public feedDetails(id): void {
     // Open modal
     const dialogRef = this._dialog.open(DialogComponent, {
-      width: '250px',
+      minWidth: '90%',
+      data: {
+        title: this.feed.name,
+        author: this.feed.author,
+        stock: this.feed.stock,
+        vigencia: this.feed.endDate
+      }
     });
 
     setTimeout(() => {

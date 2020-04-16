@@ -1,13 +1,38 @@
-<p>dialog works!</p>
 <!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
 <div mat-dialog-content>
-  <!-- <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field> -->
+  <h4>Hola {{_sharedService.getProperty('name')}}</h4>
+  <p>Gracias por apoyar el movimiento!</p>
+  <p>¿Que te interesa intercambiar por el servicio de <strong class="primary-color">{{data.title}}</strong>?</p>
+  <small>Recuerda que tienes estos ticket guardados</small>
+
+  <form class="propuesta-form" [formGroup]="propuestaForm">
+    <!-- lista de los tickets -->
+    <mat-form-field>
+      <mat-label>Tickets</mat-label>
+      <mat-select formControlName="intercambio">
+        <mat-option *ngFor="let ticket of _sharedService.getProperty('tickets')" [value]="ticket.id">
+          {{ticket.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <!-- propuesta economica -->
+    <mat-form-field appearance="fill">
+      <mat-label>Propuesta económica</mat-label>
+      <input matInput type="number" class="example-right-align" formControlName="propuestaEconomica">
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>.00 MX</span>
+    </mat-form-field>
+    <br>
+    <!-- nueva propuesta text area -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Valor agregado</mat-label>
+      <textarea matInput placeholder="Te Propongo..." formControlName="ofertaNueva"></textarea>
+    </mat-form-field>
+  </form>
+
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button cdkFocusInitial>Ok</button>
+  <button mat-raised-button color="primary" [disabled]="!propuestaForm.valid" (click)="mandarPropuesta()">Mandar Propuesta!</button>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
 </div>

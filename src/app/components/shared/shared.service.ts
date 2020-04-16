@@ -15,6 +15,39 @@ export class SharedService {
     return this._isLoadded;
   }
 
+  public getProperty(property): any {
+    return this.personalInfo[property]
+  }
+
+  public getTips(index): string {
+    return this.tips[index];
+  }
+
+  private tips = [
+    'Recuerda que puedes utilizar tus tickets guardados para generar mas valor a tu propuesta',
+    'Los servicios de lavado de carros se estan intercambiando muy seguido',
+    'Tus ventas estan algo bajas, ¿Y si ofreces algun otro servicio a cambio?'
+  ]
+
+
+  private personalInfo = {
+    name: 'Jaime Martinez',
+    tickets: [
+      {
+        id: 1,
+        name: 'lavado de carros',
+        description: 'lavado de carros en Typhon',
+        cliente: 'Tyhpo carwash'
+      },
+      {
+        id: 2,
+        name: 'Reparacion de computadora express',
+        description: 'reparacion de algun equipo de computo o farmateo',
+        cliente: 'hospital de computadoras'
+      }
+    ]
+  };
+
   public feeds = [
     {
       id: 1,
