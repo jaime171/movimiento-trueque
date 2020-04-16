@@ -8,13 +8,13 @@ import { SharedService } from '../shared/shared.service';
 })
 export class DashboardComponent implements OnInit {
   public feeds = [];
+  private _durationInSeconds = 5;
+
   constructor(
-    private _sharedService: SharedService
+    private _sharedService: SharedService,
   ) { }
 
   ngOnInit() {
-    console.log(this._sharedService)
     this.feeds = this._sharedService.feeds;
   }
-
 }

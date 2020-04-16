@@ -7,6 +7,14 @@ export class SharedService {
 
   constructor() { }
 
+  private _isLoadded = false;
+  public setIsLoadded(value): void {
+    this._isLoadded = value;
+  }
+  public getIsLoadded(): boolean {
+    return this._isLoadded;
+  }
+
   public feeds = [
     {
       id: 1,

@@ -1,5 +1,5 @@
 <main class="mat-app-background wrapper">
-  <div *ngIf="islogged">
+  <div *ngIf="_sharedService.getIsLoadded()">
     <app-nav-bar></app-nav-bar>
   </div>
   <router-outlet></router-outlet>

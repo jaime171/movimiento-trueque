@@ -6,10 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
-  declarations: [DialogComponent],
-  entryComponents: [DialogComponent],
+  declarations: [DialogComponent, SnackbarComponent],
+  entryComponents: [DialogComponent, SnackbarComponent],
   imports: [
     MatFormFieldModule,
     FormsModule,

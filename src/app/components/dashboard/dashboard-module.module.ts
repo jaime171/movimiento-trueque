@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { FeedElementComponent } from '../../components/common/feed-element/feed-element.component'
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MatChipsModule,
     MatButtonModule,
+    MatSnackBarModule
   ]
 })
 export class DashboardModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router} from '@angular/router';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class LoginComponent implements OnInit {
     // TODO: mandar los datos a firebase
     console.log(this.loginForm.value);
     this._router.navigate(['/dashboard']);
+    this._sharedService.setIsLoadded(true);
   }
 
 }

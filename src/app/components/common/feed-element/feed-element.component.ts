@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { SharedService } from '../../shared/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../shared/dialog/dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../shared/snackbar/snackbar.component'
 
 @Component({
   selector: 'app-feed-element',
@@ -11,13 +13,16 @@ import { DialogComponent } from '../../shared/dialog/dialog.component';
 })
 export class FeedElementComponent implements OnInit {
   @Input() feed: any;
-  public thumbnailImg = '';
-  public serviceImage = '';
+  public thumbnailImg: string = '';
+  public serviceImage: string = '';
+  private _durationInSeconds: number = 10;
 
   constructor(
     private _router: Router,
     public _sharedService: SharedService,
-    public _dialog: MatDialog
+    public _dialog: MatDialog,
+    private _snackBar: MatSnackBar
+
   ) { }
 
   ngOnInit() {
@@ -26,20 +31,31 @@ export class FeedElementComponent implements OnInit {
     this.serviceImage = `assets/images/${this.feed.serviceImage}`;
   }
 
+  // hacer una oferta
   public feedDetails(id): void {
     // Open modal
     const dialogRef = this._dialog.open(DialogComponent, {
       width: '250px',
-      // data: {name: this.name, animal: this.animal}
     });
+
+    setTimeout(() => {
+      this._openSnackBar();
+    }, 2000);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // this.animal = result;
+      this._snackBar.dismiss();
     });
   }
 
+  // al perfil
   public sendToProfile(id): void {
     this._router.navigate(['/feed', id]);
+  }
+
+  private _openSnackBar(): void {
+    this._snackBar.openFromComponent(SnackbarComponent, {
+      duration: this._durationInSeconds * 1000,
+    });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { SharedService } from './components/shared/shared.service';
 import 'bootstrap';
 
 @Component({
@@ -8,11 +9,9 @@ import 'bootstrap';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'movimiento-trueque';
-  islogged = true;
-
   constructor(
-    private _router: Router
+    private _router: Router,
+    public _sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -22,6 +21,5 @@ export class AppComponent {
       }
       window.scrollTo(0, 0)
     });
-
   }
 }

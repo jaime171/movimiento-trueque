@@ -10,7 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 // modules
 import { LoginModule } from './components/login/login-module.module';
 import { DashboardModule } from './components/dashboard/dashboard-module.module';
-import { FeedDescriptionModule } from './components/feed-description/feed-description-module.module'
+import { FeedDescriptionModule } from './components/feed-description/feed-description-module.module'; // PROFILE VIEW
+import { HistorialModule } from './components/historial/historial-module.module';
 import { SharedFormsModule } from './components/shared/shared-forms-module.module'
 
 // components
@@ -20,7 +21,7 @@ import { NavBarComponent } from './components/common/nav-bar/nav-bar.component';
   declarations: [
     AppComponent,
     RegisterComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import { NavBarComponent } from './components/common/nav-bar/nav-bar.component';
     SharedFormsModule,
     LoginModule,
     DashboardModule,
-    FeedDescriptionModule
+    FeedDescriptionModule,
+    HistorialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
