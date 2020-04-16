@@ -15,7 +15,7 @@ export class FeedElementComponent implements OnInit {
   @Input() feed: any;
   public thumbnailImg: string = '';
   public serviceImage: string = '';
-  private _durationInSeconds: number = 10;
+  private _durationInSeconds: number = 30;
 
   constructor(
     private _router: Router,

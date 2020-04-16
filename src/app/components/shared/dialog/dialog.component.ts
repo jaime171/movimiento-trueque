@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./dialog.component.sass']
 })
 export class DialogComponent {
-
+  public propuestaEnviada = false;
   public propuestaForm = new FormGroup({
     intercambio: new FormControl('', [Validators.required]),
     propuestaEconomica: new FormControl('', [Validators.required]),
@@ -26,6 +26,7 @@ export class DialogComponent {
 
   public mandarPropuesta(): void {
     console.log(this.propuestaForm.value);
+    this.propuestaEnviada = true;
   }
 
 }
