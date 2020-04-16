@@ -7,6 +7,7 @@ import { FeedDescriptionComponent } from '../components/feed-description/feed-de
 import { HistorialComponent } from '../components/historial/historial.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
