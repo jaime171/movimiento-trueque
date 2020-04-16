@@ -1,4 +1,4 @@
-<div class="feed-element" (click)="feedDetails(feed.id)">
+<div class="feed-element">
   <div class="feed-profile">
     <div class="profile-img">
       <img [src]="thumbnailImg">
@@ -6,13 +6,24 @@
   </div>
   <div class="feed-info">
     <h4>{{feed.name}}</h4>
-    <p class="time">{{feed.date}}</p>
+    <h5>Creado por: <span>{{feed.author}}</span></h5>
     <div class="service-image">
       <img [src]="serviceImage">
     </div>
     <span class="divider"></span>
     <p class="description">{{feed.description}}.</p>
-    <p>Propuestas: <span class="numero"><strong>{{feed.propuestas}}</strong></span></p>
+    <p>Stock: <span class="numero"><strong>{{feed.stock}}</strong></span></p>
+    <p>Vigencia: <span class="vigencia"><strong>{{feed.endDate}}</strong></span></p>
+
+    <div class="container button-row">
+      <button mat-raised-button color="primary" class="btn-margin" (click)="feedDetails(feed.id)">Hacer Oferta!</button>
+      <button mat-raised-button color="basic" class="">Ir a perfil</button>
+    </div>
+      
   </div>
-  <div class="feed-border"></div>
+  <div class="feed-border">
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip [color]="feed.type === 'servicio' ? 'primary' : 'accent'" selected>{{feed.type | uppercase}}</mat-chip>
+    </mat-chip-list>
+  </div>
 </div>
