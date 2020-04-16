@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Router} from '@angular/router';
+import { SharedService } from '../../shared/shared.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../shared/dialog/dialog.component';
 
 @Component({
   selector: 'app-feed-element',
@@ -12,7 +15,9 @@ export class FeedElementComponent implements OnInit {
   public serviceImage = '';
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    public _sharedService: SharedService,
+    public _dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -22,6 +27,19 @@ export class FeedElementComponent implements OnInit {
   }
 
   public feedDetails(id): void {
+    // Open modal
+    const dialogRef = this._dialog.open(DialogComponent, {
+      width: '250px',
+      // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
+  }
+
+  public sendToProfile(id): void {
     this._router.navigate(['/feed', id]);
   }
 }

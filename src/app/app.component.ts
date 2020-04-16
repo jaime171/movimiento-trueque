@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import 'bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,18 @@ import { Router} from '@angular/router';
 export class AppComponent {
   title = 'movimiento-trueque';
   islogged = true;
-  
+
   constructor(
     private _router: Router
-  ){}
+  ) { }
+
+  ngOnInit() {
+    this._router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+
+  }
 }
