@@ -15,6 +15,7 @@ export class FeedDescriptionComponent implements OnInit {
   thumbnailImg: string = '';
   displayedColumns: string[] = ['id', 'nombre', 'cliente'];
   dataSource = new MatTableDataSource();
+  isPersonalProfile = false;
   constructor(
     private _route: ActivatedRoute,
     private _sharedService: SharedService
@@ -23,10 +24,15 @@ export class FeedDescriptionComponent implements OnInit {
   ngOnInit() {
     this.id = this._route.snapshot.params['id'];
     this.profile = this._sharedService.getProfile(parseInt(this.id, 10));
+    console.log(this.id);
+
+    if (this.id === '4') {
+      this.isPersonalProfile = true;
+    }
+
     this.coverImage = `assets/images/${this.profile.coverImg}`;
     this.thumbnailImg = `assets/images/${this.profile.thumbnailImg}`;
     this.dataSource.data = this.profile.tickets;
-    console.log(this.profile.tickets);
   }
 
 }

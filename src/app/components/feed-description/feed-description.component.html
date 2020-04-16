@@ -3,8 +3,14 @@
     <div class="cover-image" [ngStyle]="{'background-image': 'url(' + coverImage + ')'}">
     </div>
 
-
     <div class="container description">
+      <ng-container *ngIf="isPersonalProfile">
+        <button class="propuestas-btn" mat-raised-button color="primary" matBadge="1" matBadgePosition="before" matBadgeColor="accent"
+          (click)=verPropuesta()>
+          Ver Propuesta
+        </button>
+      </ng-container>
+
       <div class="profile-img">
         <img [src]="thumbnailImg">
       </div>

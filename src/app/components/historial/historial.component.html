@@ -1,1 +1,26 @@
-<p>historial works!</p>
+<div class="historial-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Id -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <!-- hash -->
+    <ng-container matColumnDef="hash">
+      <th mat-header-cell *matHeaderCellDef> Hash </th>
+      <td mat-cell *matCellDef="let element"> {{element.hash}} </td>
+    </ng-container>
+    <!-- timestamp -->
+    <ng-container matColumnDef="timestamp">
+      <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+      <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+    </ng-container>
+    <!-- owner -->
+    <ng-container matColumnDef="owner">
+      <th mat-header-cell *matHeaderCellDef> Dueño </th>
+      <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -164,6 +164,40 @@ export class SharedService {
       socioDesde: 'Abril 2020',
       ultimaVenta: 'Mayo 2020',
       tickets: [...this._tickets]
+    },
+    {
+      id: 5,
+      telefono: '84465453657',
+      email: 'jaime@gmail.com',
+      fechaNacimiento: 'Diciembre 27',
+      socioDesde: 'Abril 2020',
+      thumbnailImg: "user_2.jpg",
+      ultimaVenta: 'Mayo 2020',
+      coverImg: "cover.jpg",
+      author: "Jaime Martinez",
+      tickets: [...this.personalInfo.tickets]
+    }
+  ];
+
+  public addHistorial(data): void {
+    this._historial.push(data);
+  }
+  public getHistorial(): any {
+    return this._historial;
+  }
+
+  private _historial = [
+    {
+      id: 1,
+      hash: '3c31b50c19e2429f7aef952093cf84cd',
+      timestamp: '2017-10-19',
+      owner: 'Jaime Martinez'
+    },
+    {
+      id: 2,
+      hash: '3c31dsfdd9e2429f7aef952093cf84cd',
+      timestamp: '2017-10-19',
+      owner: 'Raul Perez'
     }
   ]
 }

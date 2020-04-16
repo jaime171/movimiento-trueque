@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-historial',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./historial.component.sass']
 })
 export class HistorialComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'hash', 'timestamp', 'owner'];
+  dataSource = new MatTableDataSource();
 
-  constructor() { }
+  constructor(
+    private _sharedService: SharedService
+  ) { }
 
   ngOnInit() {
+    this.dataSource.data = this._sharedService.getHistorial();
   }
 
 }
